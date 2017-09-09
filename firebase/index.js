@@ -1,4 +1,6 @@
 import firebase from 'firebase';
+import {AppState} from 'react-native';
+import _ from 'lodash';
 
 // Initialize Firebase
 const config = {
@@ -10,25 +12,21 @@ const config = {
     messagingSenderId: "853675280315"
 };
 
-export default firebase.initializeApp(config);
+const firebaseApp = firebase.initializeApp(config);
 
-// Scehma
-/*
-{
-    users: {
-        [id]: {
-            id: ---
-        }
-    },
-    sessions: {
-        [id]: {
-            id: ---
-        }
-    },
-    exercises: {
-        [id]: {
-            id: --
-        }
+firebase.database.enableLogging( message => {
+    console.log(`[FIREBASE]: ${message}`);
+});
+
+// Disconnect firebase when app is in background
+AppState.addEventListener('change', appState => {
+    if (appState == 'background') {
+        firebaseApp.database().goOffline();
+        console.warn('TODO: handle offline data management properly');
     }
-}
-*/
+    else if (appState == 'active') {
+        firebaseApp.database().goOnline();
+    }
+});
+
+export default firebaseApp;
