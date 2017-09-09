@@ -3,24 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Header } from 'react-native-elements';
 import { Tabs, Tab, Icon } from 'react-native-elements';
 import Homepage from '~/components/Homepage';
-import storage from '~/offline/storage';
-import _ from 'lodash';
-
-(function testStorage() {
-    const currentEpoch = (new Date()).getTime();
-    storage.save({
-        key: 'date',
-        id: currentEpoch,
-        data: `Persisted data ${Math.random()}`
-    })
-        .then(
-            date => storage.getAllDataForKey('date')
-        )
-        .then(
-            date => console.log(date)
-        )
-    ;
-})();
+import firebaseApp from '~/firebase/index';
+console.log(firebaseApp);
 
 const ExerciseApp = () => (
     <View style={styles.container}>
