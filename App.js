@@ -1,34 +1,10 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Header } from 'react-native-elements';
-import { Tabs, Tab, Icon } from 'react-native-elements';
+import React, { Component } from 'react';
+import ExerciseApp from '~/components/ExerciseApp';
 
-import Homepage from '~/components/Homepage';
-
-export default class App extends React.Component {
+export default class App extends Component {
     render() {
         return (
-            <View style={styles.container}>
-
-                <Header
-                    backgroundColor='gray'
-                    leftComponent={{ icon: 'menu', color: '#fff' }}
-                    centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
-                    rightComponent={{ icon: 'home', color: '#fff' }}
-                />
-
-                <Homepage/>
-
-            </View>
+            <ExerciseApp/>
         );
     }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
