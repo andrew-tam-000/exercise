@@ -6,7 +6,7 @@ import { DefaultTextView, CustomizableTextView } from '~/components/index';
 const Homepage = () => (
     <View>
         <DefaultTextView />
-        <CustomizableTextView text="Howdy"/>
+        <CustomizableTextView text="Howdy" />
     </View>
 );
 
