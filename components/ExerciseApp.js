@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Header } from 'react-native-elements';
 import { Tabs, Tab, Icon } from 'react-native-elements';
 import Homepage from '~/components/Homepage';
+import BodyPartPicker from '~/components/BodyPartPicker';
 import firebaseApp from '~/firebase/index';
 console.log(firebaseApp);
 
@@ -14,7 +15,9 @@ const ExerciseApp = () => (
             centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
             rightComponent={{ icon: 'home', color: '#fff' }}
         />
-        <Homepage/>
+        <Homepage />
+        <BodyPartPicker />
+        <Homepage />
     </View>
 );
 

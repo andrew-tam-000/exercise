@@ -1,5 +1,4 @@
-```javascript
-{
+const sampleState = {
     bodyPartOptions: {
         0: {
             id: 0,
@@ -107,4 +106,5 @@
         },
     },
 }
-```
+
+export default sampleState;
