@@ -1,9 +1,21 @@
-# The Stack
+# Exercise App
+
+## Stack
 
 * Routing Library
     * https://github.com/react-community/react-navigation
 * Component Library
     * https://github.com/react-native-training/react-native-elements
+
+## Data Flow
+
+* Always try to update firebase first
+    * If firebase update succeeds, update the device's local storage programatically,
+    * If firebase fails, update the devices local storage manually
+        * Also, update another queue in localstorage to keep track of firebase operations
+            * This queue will be dispensed back to firebase once connection is reestablished
+
+# Default Readme
 
 ## Intro
 
