@@ -1,5 +1,4 @@
 import firebase from 'firebase';
-import {AppState} from 'react-native';
 import _ from 'lodash';
 
 // Initialize Firebase
@@ -18,15 +17,37 @@ firebase.database.enableLogging( message => {
     console.log(`[FIREBASE]: ${message}`);
 });
 
-// Disconnect firebase when app is in background
-AppState.addEventListener('change', appState => {
-    if (appState == 'background') {
-        firebaseApp.database().goOffline();
-        console.warn('TODO: handle offline data management properly');
-    }
-    else if (appState == 'active') {
-        firebaseApp.database().goOnline();
-    }
-});
-
 export default firebaseApp;
+
+/*
+
+- userExercises
+    - id
+    - date
+    - sets
+        - id
+
+- difficultyLevel
+    - id
+    - name
+
+- sets
+    - id
+    - reps
+    - weight
+
+- exercises
+    - id
+    - name
+    - bodyPartId
+    - difficultyId
+
+- bodyParts
+    - id
+    - name
+
+- users
+    - firstName
+    - lastName
+
+*/
