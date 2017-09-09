@@ -5,18 +5,14 @@ import { Tabs, Tab, Icon } from 'react-native-elements';
 import Homepage from '~/components/Homepage';
 
 const ExerciseApp = () => (
-
     <View style={styles.container}>
-
         <Header
             backgroundColor='gray'
             leftComponent={{ icon: 'menu', color: '#fff' }}
             centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
             rightComponent={{ icon: 'home', color: '#fff' }}
         />
-
         <Homepage/>
-
     </View>
 );
 
@@ -28,3 +24,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default ExerciseApp;
