@@ -6,14 +6,22 @@
     * https://github.com/react-community/react-navigation
 * Component Library
     * https://github.com/react-native-training/react-native-elements
+* Sync asyncStorage with redux store
+    * https://github.com/rt2zz/redux-persist
 
 ## Data Flow
 
-* Always try to update firebase first
-    * If firebase update succeeds, update the device's local storage programatically,
-    * If firebase fails, update the devices local storage manually
-        * Also, update another queue in localstorage to keep track of firebase operations
+* Action gets fired
+    * Middleware will intercept
+        * If internet, redirect to firebase
+        * If no internet, redirect to asyncStorage
+* Sync device's asyncStorage with firebase
+    * If no connection is available, update the devices local storage manually
+        * Additinoally, update another queue in localstorage to keep track of firebase operations
             * This queue will be dispensed back to firebase once connection is reestablished
+* Use redux-persist to sync asyncStorage with redux store
+* Redux store will power entire UI still
+    * Note: no reducers are needed because of redux-persist
 
 # Default Readme
 
