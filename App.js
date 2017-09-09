@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
 import storageManager from '~/offline/storageManager';
-
 import ExerciseApp from '~/components/ExerciseApp';
+import firebaseApp from '~/firebase/index';
+
+import {AppState} from 'react-native';
+// Disconnect firebase when app is in background
+AppState.addEventListener('change', appState => {
+    if (appState == 'background') {
+        firebaseApp.database().goOffline();
+        console.warn('TODO: handle offline data management properly');
+    }
+    else if (appState == 'active') {
+        firebaseApp.database().goOnline();
+    }
+});
+
 
 import storage from '~/offline/storage';
 import _ from 'lodash';

@@ -20,6 +20,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "expo": "^20.0.0",
     "firebase": "^4.3.1",
     "lodash": "^4.17.4",
