@@ -19,7 +19,7 @@ const ExerciseApp = props => {
                 centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
                 rightComponent={{ icon: 'home', color: '#fff' }}
             />
-            <FormInput onChangeText={ val => props.onChange(val)} value={props.test}/>
+            <FormInput onChangeText={ val => props.onChange(val) } value={ props.test }/>
             <Homepage />
             <BodyPartPicker />
             <Homepage />
