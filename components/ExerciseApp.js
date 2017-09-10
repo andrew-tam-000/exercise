@@ -7,7 +7,7 @@ import BodyPartPicker from '~/components/BodyPartPicker';
 import firebaseApp from '~/firebase/index';
 import { firebaseConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
-import {onChangeTest} from '~/redux/actions/firebase';
+import { onChangeTest } from '~/redux/actions/firebase';
 
 const ExerciseApp = props => {
     console.log(props);
@@ -36,21 +36,26 @@ const styles = StyleSheet.create({
   },
 });
 
+const mapStateToProps = ({ firebase: { data }, }, auth, profile) => {
+    return {
+        test: data.test,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onChange: value => dispatch(onChangeTest(value)),
+    };
+};
+
 export default firebaseConnect([
     {
         path: 'test',
-    }
+    },
 ])(
     connect(
-        ( { firebase: { data }, }, auth, profile ) => {
-            return {
-                test: data.test
-            };
-        },
-        dispatch => ({
-            onChange: value => dispatch(onChangeTest(value))
-        })
-
+        mapStateToProps,
+        mapDispatchToProps,
     )(
         ExerciseApp
     )
