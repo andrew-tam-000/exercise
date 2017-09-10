@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import storageManager from '~/offline/storageManager';
+import { Provider } from 'react-redux';
 import ExerciseApp from '~/components/ExerciseApp';
 import firebaseApp from '~/firebase/index';
 
@@ -18,6 +19,7 @@ AppState.addEventListener('change', appState => {
 
 import storage from '~/offline/storage';
 import _ from 'lodash';
+import store from '~/redux/store/store';
 
 storageManager();
 
@@ -42,7 +44,9 @@ storageManager();
 export default class App extends Component {
     render() {
         return (
-            <ExerciseApp/>
+            <Provider store={store}>
+                <ExerciseApp/>
+            </Provider>
         );
     }
 }
